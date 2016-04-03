@@ -62,6 +62,12 @@ Route::group(['middleware' => ['web']], function() {
 
 	Route::get('members', ['as' => 'members', 'uses' => 'MemberController@memberlist']);
 	Route::get('members/online', ['as' => 'members.online', 'uses' => 'MemberController@online']);
+	
+	//buddy routes
+	Route::post('addbuddy/{buddy_id}', 'BuddyController@AddBuddy');
+	Route::post('delbuddyrequest/{buddy_id}', 'BuddyController@DelBuddyRequest');
+	Route::post('acceptbuddyrequest/{buddy_id}', 'BuddyController@AcceptBuddyRequest');
+	Route::post('deniebuddyrequest/{buddy_id}', 'BuddyController@DenieBuddyRequest');
 
 	Route::get('search', ['as' => 'search', 'uses' => 'SearchController@index']);
 	Route::post('search', ['as' => 'search.post', 'uses' => 'SearchController@makeSearch']);
